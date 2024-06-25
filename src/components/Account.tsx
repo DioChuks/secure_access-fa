@@ -45,7 +45,7 @@ const Account: React.FC<AccountProps> = ({ isTriggered }) => {
         longitude: coords.longitude,
       };
 
-      fetch(apiUrl, {
+      fetch(`${apiUrl}/geoloc`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
