@@ -14,6 +14,7 @@ const Account: React.FC<AccountProps> = ({ isTriggered }) => {
   const [trPin, setTrPin] = useState<string>("");
   const [numberOfTries, setNumberOfTries] = useState(0);
   const pin = "Rf0efc48d2fmfaJL";
+  const apiUrl = import.meta.env.VITE_GEOLOC_URL;
   const toggleBackCard = () => {
     const cardEl = document.getElementById("creditCard");
     if (cardEl?.classList.contains("seeBack")) {
@@ -44,7 +45,7 @@ const Account: React.FC<AccountProps> = ({ isTriggered }) => {
         longitude: coords.longitude,
       };
 
-      fetch("https://2372-102-215-57-161.ngrok-free.app/geoloc", {
+      fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
